@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr class="bg-dark text-white">
+      <th>Id</th>
+      <th>Name</th>
+      <th>Avilable Quantity</th>
+      <th>Price</th>
+      <th>Needed Quantity</th>
+      <th>Details Html</th>
+      <th>Details Router</th>
+      <th>Add to cart</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- style="background-color:yellow ;" -->
+    <tr *ngFor="let product of getProductsByCatId()" class="bg-danger text-white">
+      <td>{{product.Id}}</td>
+      <td>{{product.Name}}</td>
+      <td>{{product.Quantity}}</td>
+      <td>{{product.Price}}$</td>
+      <td><input type="number" #pcount /></td>
+      <td><a href="{{'/Product/'+product.Id}}"  class="btn btn-success">Details html</a></td>
+      <td><button class="btn btn-success" (click)="getPrdById(product.Id)">Details router</button></td>
+      <td><button class="btn btn-success" (click)="addPrice(product.Price,pcount.valueAsNumber)">Add</button></td>
+    </tr>
+  </tbody>
+</table>

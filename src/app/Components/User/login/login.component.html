@@ -1,0 +1,16 @@
+<form [formGroup]="LoginForm" (ngSubmit)="Login()">
+<div class="mb-3">
+  <label for="" class="form-label">Email</label>
+  <input type="email" formControlName="Email" class="form-control" placeholder="abc@mail.com">
+  <small id="emailHelpId" class="form-text text-muted">Help text</small>
+</div>
+<div class="mb-3">
+  <label for="" class="form-label">Password</label>
+  <input type="password" formControlName="Password" class="form-control" placeholder="">
+</div>
+<button type="submit" [disabled]="LoginForm.invalid" class="btn btn-primary">Login</button>
+</form>
+<hr>
+Form Test {{LoginForm.value | json}}
+
+<button type="button" class="btn btn-primary" (click)="loguot()">loguot</button>

@@ -1,0 +1,25 @@
+<div>
+  <form #frm="ngForm" (ngSubmit)="addProduct()">
+    <div class="mb-3">
+      <label for="prodName" class="form-label">Name</label>
+      <input type="text" #prdname="ngModel" [class.is-valid]="prdname.valid" [class.is-invalid]="prdname.invalid && prdname.touched" required minlength="3" [(ngModel)]="prd.name" name="Name" id="prodName" class="form-control" placeholder="" aria-describedby="helpId" />
+      <small id="helpId" [hidden]="prdname.valid || prdname.untouched" class="text-muted">name must be more than 3 letters</small>
+    </div>
+    <div class="mb-3">
+      <label for="prodQuantity" class="form-label">Quantity</label>
+      <input type="number" required min="1" [(ngModel)]="prd.quantity" name="Quantity" id="prodQuantity" class="form-control" placeholder=""
+        aria-describedby="helpId" />
+      <small id="helpId" class="text-muted">Help text</small>
+    </div>
+    <div class="mb-3">
+      <label for="prodPrice" class="form-label">Price</label>
+      <input type="number" required min="1" [(ngModel)]="prd.price" name="Price" id="prodPrice" class="form-control" placeholder="" aria-describedby="helpId" />
+      <small id="helpId" class="text-muted">Help text</small>
+    </div>
+    <button [disabled]="frm.invalid" type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>
+<hr>
+<!-- {{this.prd | json}}
+<br>
+{{prdname.className}} -->

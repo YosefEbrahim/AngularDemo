@@ -1,0 +1,24 @@
+<a class="btn btn-primary" [routerLink]="['/NewProduct']" role="button">Add Product</a>
+<br/>
+<br/>
+<table class="table">
+  <thead>
+    <tr class="bg-dark text-white">
+      <th>Id</th>
+      <th>Name</th>
+      <th>Avilable Quantity</th>
+      <th>Price</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- style="background-color:yellow ;" -->
+    <tr *ngFor="let product of prdList" class="bg-danger text-white">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.quantity}}</td>
+      <td>{{product.price}}$</td>
+      <td><a [routerLink]="['/Product/', product.id]"  class="btn btn-success">Details html</a></td>
+    </tr>
+  </tbody>
+</table>

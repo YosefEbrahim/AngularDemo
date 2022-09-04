@@ -1,0 +1,45 @@
+<h1>Campany Name: {{company1.name}}</h1>
+<img src="{{company1.logo}}" alt="logo"/>
+<!-- <img [src]="company1.logo" alt="logo"/> -->
+<br/>
+<hr/>
+<h4>Capital USD : {{company1.Capital | currency:"USD":true}}</h4>
+<h4>Capital EGP : {{company1.Capital| USDtoEGP:70 | currency:"EGP":false}}</h4>
+<h4>Estaplish Date : {{company1.establishDate | date: 'medium'}}</h4>
+<br/>
+<button class="btn btn-success" (click)="toggelServices()">toggel</button>
+<br/>
+<hr>
+<div>
+  Test Binding:<br/>
+property binding:<input type="text" [value]="company1.name"><br/>
+two way binding: <input type="text" [(ngModel)]="company1.name"/>
+
+</div>
+<div [hidden]="!IsServicesdisplayed" >
+<h1>Services :</h1>
+<ul>
+  <li *ngFor="let item of company1.services">{{item}}</li>
+</ul>
+</div>
+<h3 >List of our Products :</h3>
+<table class="table">
+  <thead>
+    <tr class="bg-dark text-white">
+      <th>Id</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- style="background-color:yellow ;" -->
+    <tr *ngFor="let product of mainProducts" [ngStyle]="{'background-color':(product.Quantity==0)?'yellow':'white'}">
+      <td>{{product.Id}}</td>
+      <td>{{product.Name}}</td>
+      <td appHighLight>{{product.Quantity}}</td>
+      <td>{{product.Price}}$</td>
+    </tr>
+  </tbody>
+</table>
+

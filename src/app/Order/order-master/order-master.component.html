@@ -1,0 +1,20 @@
+<h1>Order Master</h1>
+<div>
+  Select Category:
+  <select #categorySelect [(ngModel)]="catId">
+    <option selected value=""></option>
+    <option *ngFor="let cat of categoryList" [value]="cat.Id">{{cat.Name}}</option>
+  </select>
+  <br/>
+  <br/>
+  <!-- <span class="p-4">{{categorySelect.value}}</span> -->
+</div>
+<div class="bg-info">
+  <app-order-deatails [SelectCatId]="catId" (TotalPriceChanged)="onTatalTotalPriceChanged($event)"></app-order-deatails>
+</div>
+
+<hr/>
+<div>
+  Your Total Price : {{TotalOrderPrice}}
+</div>
+<br/>

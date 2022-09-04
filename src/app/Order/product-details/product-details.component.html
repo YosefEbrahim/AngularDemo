@@ -1,0 +1,15 @@
+<div class="card" style="width: 500px;margin:auto">
+    <img  src="/assets/images/250.jpg" alt="logo" />
+    <div class="card-body">
+    <h4 class="card-title">{{prd.name}}</h4>
+    <div>
+      <div>Id: {{prd.id}}</div>
+      <div>Quantity: {{prd.quantity}}</div>
+      <div>Price: {{prd.price}}</div>
+    </div>
+  </div>
+  <button (click)="goBack()" class="btn btn-primary">Go Back</button>
+</div>
+<br>
+<a  class="btn btn-primary" (click)="ChangeID()" role="button">change id</a>
+<br>
